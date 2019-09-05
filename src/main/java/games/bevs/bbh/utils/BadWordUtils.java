@@ -1,38 +1,31 @@
 package games.bevs.bbh.utils;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class BadWordUtils 
 {
-	private static HashSet<String> BAD_WORDS = new HashSet<>();
+	private static HashSet<String> SHORT_WORDS;
+	private static HashSet<String> LONG_WORDS;
 	
-	static 
+	static
 	{
 		populate();
 	}
 	
 	private static void populate()
 	{
-		BAD_WORDS.add("fuck");
-		BAD_WORDS.add("cunt");
-		BAD_WORDS.add("bitch");
-		BAD_WORDS.add("slut");
-		BAD_WORDS.add("hell");
-		BAD_WORDS.add("boob");
-		BAD_WORDS.add("boobs");
-		BAD_WORDS.add("ass");
-		BAD_WORDS.add("blowjob");
-		BAD_WORDS.add("boner");
-		BAD_WORDS.add("hell");
-		BAD_WORDS.add("tit");
-		BAD_WORDS.add("ballsack");
-		
-		BAD_WORDS.add("8==D");
-		BAD_WORDS.add("8==D~");
+		SHORT_WORDS = new HashSet<String>(Arrays.asList(new String[] { "ass", "sex", "tits", "tit", "fuk", "fag", "cum", "shit", "cock", "cunt", "dick", "dildo", "wank", "ddos", "butt", "piss" }));
+		LONG_WORDS = new HashSet<String>(Arrays.asList(new String[] {  "fuck", "whore", "bitch", "fukc", "faggot", "faggit", "nigger", "nigga", "niqqer", "niggers", "slut", "buttplug", "queer", "penis" }));
 	}
 	
-	public static boolean isBad(String word)
+	public static boolean isBadWordShort(String word)
 	{
-		return BAD_WORDS.contains(word);
+		return SHORT_WORDS.contains(word);
+	}
+	
+	public static boolean isBadWordLong(String word)
+	{
+		return LONG_WORDS.contains(word);
 	}
 }
