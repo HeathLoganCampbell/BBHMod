@@ -24,6 +24,8 @@ public class MuffinChatListener
 	@SubscribeEvent
 	public void onChat(ClientChatReceivedEvent e) 
 	{
+		//ignore actionbars
+		if(e.type != 2) return;
 		String formated = e.message.getFormattedText();
 		String unformated = e.message.getUnformattedTextForChat();
 		
