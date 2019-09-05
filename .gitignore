@@ -1,0 +1,24 @@
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+dependency-reduced-pom.xml
+
+# Java
+*.jar
+
+# Gradle
+.gradle/
+build/
+classes/
+out/
+
+# Minecraft Environment
+run/
