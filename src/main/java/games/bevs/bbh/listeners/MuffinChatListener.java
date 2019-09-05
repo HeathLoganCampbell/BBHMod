@@ -12,7 +12,7 @@ public class MuffinChatListener
 {
 	private static final String REPLACEMENT_WORD = EnumChatFormatting.BOLD + "muffin" + EnumChatFormatting.RESET;
 	
-	private String filterBadWords(String statement)
+	private String filterSimpleBadWords(String statement)
 	{
 		String[] words = statement.split(" ");
 		StringBuilder strBuilder = new StringBuilder();
@@ -25,11 +25,12 @@ public class MuffinChatListener
 			
 			for(EnumChatFormatting chatColor : EnumChatFormatting.values())
 				unformattedWord = word.replaceAll(chatColor.toString(), "");
+			unformattedWord = antiEasyByPass(unformattedWord);
 			
 			if(BadWordUtils.isBad(unformattedWord))
 				isBad = true;
 			
-			strBuilder.append(isBad
+			strBuilder.append(BadWordUtils.isBad(unformattedWord)
 								? REPLACEMENT_WORD 
 								: word);
 			strBuilder.append(" ");
@@ -41,13 +42,19 @@ public class MuffinChatListener
 		return statement;
 	}
 	
+	private String antiEasyByPass(String word)
+	{
+		word = word.replaceAll("1", "i");
+		word = word.replaceAll("5", "s");
+		return word;
+	}
+	
 	@SubscribeEvent
 	public void onChat(ClientChatReceivedEvent e) 
 	{
 		String formated = e.message.getFormattedText();
-		String unformated = e.message.getUnformattedText();
 		
-		formated = this.filterBadWords(formated);
+		formated = this.filterSimpleBadWords(formated);
 		
 		ChatComponentText chatComponentText = new ChatComponentText(formated);
 		
