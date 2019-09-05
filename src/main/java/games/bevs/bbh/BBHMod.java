@@ -2,7 +2,7 @@ package games.bevs.bbh;
 
 import games.bevs.bbh.listeners.MuffinChatListener;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -18,6 +18,6 @@ public class BBHMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	FMLCommonHandler.instance().bus().register(new MuffinChatListener());
+    	MinecraftForge.EVENT_BUS.register(new MuffinChatListener());
     }
 }

@@ -24,8 +24,11 @@ version = "1.0"
 group= "games.bevs.bbh"
 archivesBaseName = "bbhmod"
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 minecraft {
-    version = "1.8.9-11.15.1.2318-1.8.9"
+    version = "1.8.9-11.15.1.1722"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -78,5 +81,11 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+jar {
+    manifest {
+        attributes FMLAT: "${project.name}_at.cfg", FMLCorePluginContainsFMLMod: true
     }
 }

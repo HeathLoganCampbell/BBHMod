@@ -25,7 +25,7 @@ public class MuffinChatListener
 	public void onChat(ClientChatReceivedEvent e) 
 	{
 		String formated = e.message.getFormattedText();
-		String unformated = e.message.getUnformattedText();
+		String unformated = e.message.getUnformattedTextForChat();
 		
 		for(WordFilter wordFilter : this.filterWords)
 		{
