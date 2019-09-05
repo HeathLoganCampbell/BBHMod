@@ -1,0 +1,16 @@
+[
+{
+  "modid": "bbhmod",
+  "name": "BadBoyHalo Mod",
+  "description": "See the world through BadBoyHalos Eyes.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Sprock"],
+  "credits": "Sprock the Developer",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
